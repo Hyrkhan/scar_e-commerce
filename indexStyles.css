@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  position: relative; /* Important for stacking */
+  z-index: 1;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255,255,255,0.85); /* White overlay, 0.7 alpha for 0.3 opacity image */
+  background-image: url('./media/background overlay.avif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: screen; /* or 'overlay', 'screen', or 'soft-light' */
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: #253a86;
+    opacity: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.2rem;
+}
+
+nav > div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+nav > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0%;
+}
+
+nav > div:last-child ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  background-color: pink;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+}
+nav > div:last-child ul li {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: palegreen;;
+}
+nav > div:last-child ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+  background-color: violet;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
