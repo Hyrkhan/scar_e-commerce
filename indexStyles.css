@@ -196,3 +196,66 @@ button#shop-nowbtn {
     cursor: pointer;
     font-size: 1.2rem;
 }
+
+/* About Page Specific Styles */
+.about {
+    
+    padding: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #253a86;
+    
+}
+
+.about-content {
+    
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 7rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 100%;
+    width: 90%
+}
+
+.about-content h1 {
+    color: #253a86;
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about {
+        padding: 3vh 5vw;
+    }
+    
+    .about-title {
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content {
+        padding: 1.5rem;
+    }
+    
+    .about-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .about-content p {
+        font-size: 1rem;
+    }
+}
