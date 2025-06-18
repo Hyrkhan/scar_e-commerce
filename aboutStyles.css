@@ -103,159 +103,41 @@ nav > div:last-child img {
     margin-bottom: 8%;
 }
 
-
-.hero {
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: aqua;
-}
-.hero-image {
-    width: 50%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-image > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-text {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: right;
-    justify-content: center;
-    background-color: #b4c8e4;
-    
-}
-
-.hero-title {
-    font-size: 3rem;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 1rem;
-    /* background-color: aquamarine; */
-    text-align: right;
-    padding-right: 3vw;
-}
-.hero-description {
-    font-size: 1.2rem;
-    color: black;
-    text-align: right;
-    /* background-color: blanchedalmond; */
-    padding-right: 3vw;
-    margin-bottom: 2rem;
-}
-.sales-desc {
-    font-size: 1.4rem;
-    color: black;
-    text-align: right;
-    /* background-color: blanchedalmond; */
-    padding-right: 3vw;
-    font-weight: bold;
-}
-.hero-button {
-    margin-top: 2vh;
-    height: 6vh;
-    /* background-color: beige; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 3vw;
-    gap: 2vw;
-}
-
-button#find-morebtn {
-    color: white;
-    font-weight: bold;
-    height: 100%;
-    width: 13vw;
-    border: 2px solid white;
-    background-color: #b4c8e4;
-    border-radius: 17px;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
-button#shop-nowbtn {
-    background-color: #253a86;
-    color: white;
-    font-weight: bold;
-    height: 100%;
-    width: 13vw;
-    border: none;
-    border-radius: 17px;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
 /* About Page Specific Styles */
 .about {
-    
-    padding: 5vh 5vw;
+    height: 78vh;
+    width: 85vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #253a86;
-    
+    align-self: center;
+    margin-top: 10vh;
 }
 
 .about-content {
     
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 7rem;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 100%;
-    width: 80%
+    width: 85vw;
+    height: 100%;
 }
 
 .about-content h1 {
     color: #253a86;
-    margin-bottom: 1.5rem;
-    font-size: 3rem;
+    font-size: 1rem;
 }
 
 .about-content p {
-    margin-bottom: 1.5rem;
     line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 5vh;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .about {
-        padding: 3vh 5vw;
-    }
-    
-    .about-title {
-        font-size: 2rem;
-    }
-    
-    .about-content {
-        padding: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .about-content {
-        padding: 1.5rem;
-    }
-    
-    .about-content h1 {
-        font-size: 1.5rem;
-    }
-    
-    .about-content p {
-        font-size: 1rem;
-    }
+.about-content img {
+    margin-top: 5vh;
+    object-fit: cover;
+    height: 12vh;
+    width: 7vw;
 }
