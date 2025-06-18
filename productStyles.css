@@ -1,0 +1,461 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  position: relative; /* Important for stacking */
+  z-index: 1;
+  flex-direction: column;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255,255,255,0.85); /* White overlay, 0.7 alpha for 0.3 opacity image */
+  background-image: url('./media/background overlay.avif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: screen; /* or 'overlay', 'screen', or 'soft-light' */
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+nav {
+    width: 100%;
+    height: 9vh;
+    background-color: #253a86;
+    opacity: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.2rem;
+}
+
+nav > div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+nav > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0%;
+  font-weight: bold;
+}
+
+nav > div:first-child img {
+  height: 110%;
+  object-fit: contain;
+  margin-left: 1vw;
+  /* background-color: lightblue; */
+  margin-top: 4%;
+}
+
+
+nav > div:last-child ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  /* background-color: pink; */
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 1vw;
+}
+nav > div:last-child ul li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: palegreen; */
+}
+nav > div:last-child ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  height: 100%;
+  /* background-color: violet; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+nav > div:last-child img {
+    height: 65%;
+    width: 100%;
+    object-fit: contain;
+    /* background-color: teal; */
+    margin-bottom: 8%;
+}
+
+
+.hero {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+}
+.hero-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+    background-color: #b4c8e4;
+    
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 1rem;
+    /* background-color: aquamarine; */
+    text-align: right;
+    padding-right: 3vw;
+}
+.hero-description {
+    font-size: 1.2rem;
+    color: black;
+    text-align: right;
+    /* background-color: blanchedalmond; */
+    padding-right: 3vw;
+    margin-bottom: 2rem;
+}
+.sales-desc {
+    font-size: 1.4rem;
+    color: black;
+    text-align: right;
+    /* background-color: blanchedalmond; */
+    padding-right: 3vw;
+    font-weight: bold;
+}
+.hero-button {
+    margin-top: 2vh;
+    height: 6vh;
+    /* background-color: beige; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 3vw;
+    gap: 2vw;
+}
+
+button#find-morebtn {
+    color: white;
+    font-weight: bold;
+    height: 100%;
+    width: 13vw;
+    border: 2px solid white;
+    background-color: #b4c8e4;
+    border-radius: 17px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+button#shop-nowbtn {
+    background-color: #253a86;
+    color: white;
+    font-weight: bold;
+    height: 100%;
+    width: 13vw;
+    border: none;
+    border-radius: 17px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.featured-products {
+    margin-top: 15vh;
+    width: 100%;
+    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: pink; */
+    margin-bottom: 50vh;
+}
+
+.featured-products-header {
+    height: 10vh;
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3vh;
+}
+
+.featured-products-header > span#title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+}
+
+.featured-products-header > span#desc {
+    margin-top: 1vh;
+}
+
+.featured-products-list {
+    width: 85vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* background-color: aqua; */
+    margin-top: 8vh;
+}
+
+.featured-products-list > ul {
+    /* background-color: aquamarine; */
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.featured-products-list > ul li {
+    height: 55vh;
+    width: 19vw;
+    background-color: #cae1ff;
+    border-radius: 10px;
+    margin-bottom: 10vh;
+}
+
+.featured-products-list > ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: left;    
+    justify-self: center;
+    text-decoration: none;
+}
+
+/* Common wrapper for all product images */
+.featured-products-list > ul li a .image-wrapper {
+    aspect-ratio: 5 / 5; /* or whatever looks best */
+    width: 90%;
+    margin: 2vh auto 1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* All images get this */
+.featured-products-list > ul li a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Optional special tweak for wallPoster if needed */
+img#wallPoster {
+    object-position: center top; /* Or adjust for best visible section */
+}
+
+.featured-products-list > ul li a span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin-top: .5vh;
+    /* background-color: aqua; */
+    padding-left: 1vw;
+}
+.featured-products-list > ul li a p {
+    font-size: 1.1rem;
+    color: black;
+    text-align: left;
+    padding-left: 1vw;
+    /* background-color: aqua; */
+    margin-top: 1.5vh;
+}
+
+.product-page {
+            
+            padding: 5vh 10vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #253a86;
+        }
+
+        .product-container {
+            
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .product-header h1 {
+            font-size: 2rem;
+            color: #253a86;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-header h2 {
+            font-size: 1.5rem;
+            color: #253a86;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-content {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .product-image {
+            flex: 1;
+            min-width: 650px;
+            max-width: 650px;
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 10px;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffc107;
+            font-size: 1.2rem;
+        }
+
+        .product-description {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .product-benefits {
+            margin-bottom: 2rem;
+        }
+
+        .product-benefits h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #253a86;
+        }
+
+        .product-benefits ul {
+            padding-left: 1.5rem;
+        }
+
+        .product-benefits li {
+            margin-bottom: 0.5rem;
+        }
+
+        .product-quantity {
+            margin-bottom: 2rem;
+        }
+
+        .product-quantity label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .product-quantity select {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #b4c8e4;
+            background-color: white;
+        }
+
+        .add-to-cart {
+            padding: 1rem 2rem;
+            background-color: #253a86;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #1a2c6b;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .product-content {
+                flex-direction: column;
+            }
+            
+            .product-image {
+                margin-bottom: 2rem;
+            }
+        }
