@@ -106,19 +106,24 @@ nav > div:last-child img {
 
 
 .product-page {    
-    padding: 5vh 10vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #253a86;
+    height: 87vh;
+    width: 85vw;
+    align-self: center;
+    margin-top: 3vh;
 }
 
 .product-container {
     width: 100%;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 3rem;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding-right: 1vw;
+    padding-left: 1vw;
 }
 
 .product-header {
@@ -127,42 +132,34 @@ nav > div:last-child img {
 }
 
 .product-header h1 {
-    font-size: 2rem;
+    font-size: 1rem;
     color: #253a86;
-    margin-bottom: 0.5rem;
 }
 
 .product-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: #253a86;
-    margin-bottom: 1.5rem;
 }
 
 .product-content {
     display: flex;
-    gap: 3rem;
+    gap: 1rem;
 }
 
 .product-image {
     flex: 1;
-    min-width: 650px;
-    max-width: 650px;
-    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #f8f9fa;
     border-radius: 10px;
-    padding: 1rem;
 }
 
 .product-image img {
-    width: 100%;
+    width: 90%;
+    height: 90%;
     border-radius: 10px;
-    max-width: 100%;
-    max-height: 100%;
     object-fit: contain;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .product-details {
@@ -172,32 +169,27 @@ nav > div:last-child img {
 }
 
 .product-price {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: bold;
-    margin-bottom: 1rem;
 }
 
 .product-rating {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     color: #ffc107;
     font-size: 1.2rem;
 }
 
 .product-description {
-    margin-bottom: 2rem;
-    line-height: 1.6;
 }
 
 .product-benefits {
-    margin-bottom: 2rem;
 }
 
 .product-benefits h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
     color: #253a86;
 }
 
@@ -210,7 +202,7 @@ nav > div:last-child img {
 }
 
 .product-quantity {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .product-quantity label {
