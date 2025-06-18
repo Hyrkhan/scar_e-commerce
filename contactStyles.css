@@ -103,54 +103,28 @@ nav > div:last-child img {
     margin-bottom: 8%;
 }
 
-button#find-morebtn {
-    color: white;
-    font-weight: bold;
-    height: 100%;
-    width: 13vw;
-    border: 2px solid white;
-    background-color: #b4c8e4;
-    border-radius: 17px;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
 
-button#shop-nowbtn {
-    background-color: #253a86;
-    color: white;
-    font-weight: bold;
-    height: 100%;
-    width: 13vw;
-    border: none;
-    border-radius: 17px;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
+
 /* Contact Page Specific Styles */
 .contact {
-    padding: 5vh 5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     color: #253a86;
-
-}
-
-.contact-title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    text-align: center;
+    margin-top: 5vh;
+    width: 85vw;
+    align-self: center;
+    height: 80vh;
 }
 
 .contact-content {
-    
-    width: 80%;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 5rem;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 2vh;
 }
 
 .contact-content img {
