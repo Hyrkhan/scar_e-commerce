@@ -1,0 +1,302 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(255,255,255,0.85); /* White overlay, 0.7 alpha for 0.3 opacity image */
+  background-image: url('./media/background overlay.avif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: screen; /* or 'overlay', 'screen', or 'soft-light' */
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+nav {
+    width: 100%;
+    height: 9vh;
+    background-color: #253a86;
+    opacity: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+nav > div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+nav > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0%;
+  font-weight: bold;
+}
+
+nav > div:first-child img {
+  height: 110%;
+  object-fit: contain;
+  margin-left: 1vw;
+  /* background-color: lightblue; */
+  margin-top: 4%;
+}
+
+
+nav > div:last-child ul {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  /* background-color: pink; */
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 1vw;
+}
+nav > div:last-child ul li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: palegreen; */
+}
+nav > div:last-child ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  height: 100%;
+  /* background-color: violet; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+nav > div:last-child img {
+    height: 65%;
+    width: 100%;
+    object-fit: contain;
+    /* background-color: teal; */
+    margin-bottom: 8%;
+}
+
+.signup-container {
+  width: 38vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* This helps with vertical centering */
+  margin-top: 7.2vh;
+  margin-bottom: 8vh;
+
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #253a86;
+}
+
+header h2 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0 0;
+    color: #253a86;
+    font-weight: normal;
+}
+
+.signup-form {
+    background-color: #cae1ff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: auto; /* Additional centering */
+    width: 100%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.6rem;
+    color: #253a86;
+    margin: auto; /* Additional centering */
+    text-align: center;
+}
+
+.logo img {
+    width: 80px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto 1rem; /* Center the logo */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #b4c8e4;
+    border-radius: 8px;
+    font-size: .7rem;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #253a86;
+    box-shadow: 0 0 0 2px rgba(37, 58, 134, 0.2);
+}
+
+.signup-button {
+    width: 50%;
+    padding: 1rem;
+    background-color: #253a86;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+    margin: 1rem auto;
+    display: block;
+}
+
+.signup-button:hover {
+    background-color: #1a2c6b;
+}
+
+footer {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .signup-container {
+        padding: 1rem;
+    }
+    
+    .signup-form {
+        padding: 1.2rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+}
+
+footer {
+    width: 100%;
+    height: 10vh;
+    background-color: #253a86;
+    opacity: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: white;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+footer div {
+    /* background-color: aqua; */
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+footer div ul {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* background-color: saddlebrown; */
+    height: 100%;
+    align-content: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+footer div ul li {
+    /* background-color: black; */
+    width: 7.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer div ul li a {
+    /* background-color: aqua; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+footer div ul li a > img {
+    height: 70%;
+    width: 70%;
+    object-fit: cover;
+}
