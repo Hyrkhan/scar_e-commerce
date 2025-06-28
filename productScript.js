@@ -105,19 +105,20 @@ const products = {
     }
 };
 
-// Get product ID from URL
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 
-// Load product data
+let product = null; // ✅ Declare `product` so it's accessible everywhere
+
 if (productId && products[productId]) {
-    const product = products[productId];
+    product = products[productId];
+
     document.getElementById('product-name').textContent = product.name;
     document.getElementById('product-price').textContent = product.price;
     document.getElementById('product-img').src = product.image;
     document.getElementById('product-img').alt = product.name;
     document.getElementById('product-description').textContent = product.description;
-    
+
     const benefitsList = document.getElementById('product-benefits');
     benefitsList.innerHTML = '';
     product.benefits.forEach(benefit => {
@@ -126,6 +127,46 @@ if (productId && products[productId]) {
         benefitsList.appendChild(li);
     });
 } else {
-    // Redirect or show error if product not found
     window.location.href = 'index.html';
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addToCartBtn = document.querySelector('.add-to-cart');
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', function () {
+            const quantity = parseInt(document.getElementById('quantity').value);
+
+            // ✅ Ensure `product` is loaded
+            if (!product) {
+                alert('Product not loaded.');
+                return;
+            }
+
+            const data = {
+                product_id: productId,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+                quantity: quantity
+            };
+
+            fetch('add_to_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Response from PHP:', result);
+                if (result.status === 'success') {
+                    alert('Added to cart!');
+                } else {
+                    alert('Error adding to cart.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    }
+});
