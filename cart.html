@@ -87,122 +87,57 @@
     </footer>
 
     <script>
-        // Cart data - in a real app, this would come from localStorage or a database
-        const cartItems = [
-            {
-                id: 'wall-poster',
-                name: 'Summer Beach Collage Matte Print',
-                price: 89.00,
-                quantity: 2,
-                image: './media/img/wall poster.png'
-            },
-            {
-                id: 'plate',
-                name: 'Cabana Striped Dinner Plates',
-                price: 135.00,
-                quantity: 2,
-                image: './media/img/plate.png'
-            },
-            {
-                id: 'fabric',
-                name: 'Sky Blue Solid Polyester Satin',
-                price: 160.00,
-                quantity: 2,
-                image: './media/img/fabric.jpg'
-            }
-        ];
-
-            // Load cart items
-            function loadCartItems() {
-                const cartContainer = document.getElementById('cart-items');
-                let total = 0;
-                
-                // Clear existing items
-                cartContainer.innerHTML = '';
-                
-                // Add each item to the cart
-                cartItems.forEach(item => {
-                    const itemTotal = item.price * item.quantity;
-                    total += itemTotal;
-                    
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'cart-item';
-                    itemElement.innerHTML = `
-                        <div class="item-image-container">
-                            <img src="${item.image}" alt="${item.name}" class="item-image">
-                        </div>
-                        <div class="item-info">
-                            <span class="item-name">${item.name}</span>
-                            <a href="product.html?id=${item.id}" class="view-details">View Details</a>
-                        </div>
-                        <div class="item-price">P ${item.price.toFixed(2)}</div>
-                        <div class="item-quantity">
-                            <button class="quantity-btn minus">-</button>
-                            <span class="quantity">${item.quantity}</span>
-                            <button class="quantity-btn plus">+</button>
-                        </div>
-                        <div class="item-actions">
-                            <button class="remove-item" data-id="${item.id}">×</button>
-                        </div>
-                    `;
-                    
-                    cartContainer.appendChild(itemElement);
-                });
-                
-                // Update total
-                document.querySelector('.total-amount').textContent = `TOTAL: P ${total.toFixed(2)}`;
-                
-                // Add event listeners for quantity buttons
-                document.querySelectorAll('.quantity-btn').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const quantityElement = this.parentElement.querySelector('.quantity');
-                        let quantity = parseInt(quantityElement.textContent);
-                        
-                        if (this.classList.contains('minus') && quantity > 1) {
-                            quantity--;
-                        } else if (this.classList.contains('plus')) {
-                            quantity++;
-                        }
-                        
-                        quantityElement.textContent = quantity;
-                        
-                        // Update total (in a real app, you'd update the cart data too)
-                        updateTotal();
-                    });
-                });
-                
-                // Add event listeners for remove buttons
-                document.querySelectorAll('.remove-item').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const itemId = this.getAttribute('data-id');
-                        
-                        // Remove from cart data array (in a real app)
-                        const itemIndex = cartItems.findIndex(item => item.id === itemId);
-                        if (itemIndex !== -1) {
-                            cartItems.splice(itemIndex, 1);
-                        }
-                        
-                        // Remove from DOM
-                        this.closest('.cart-item').remove();
-                        
-                        // Update total
-                        updateTotal();
-                    });
-                });
-            }
-
-        function updateTotal() {
-            let total = 0;
-            document.querySelectorAll('.cart-item').forEach(item => {
-                const price = parseFloat(item.querySelector('.item-price').textContent.replace('P ', ''));
-                const quantity = parseInt(item.querySelector('.quantity').textContent);
-                total += price * quantity;
+    function loadCartItems() {
+        fetch('cart_display.php')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('cart-items').innerHTML = html;
+                attachRemoveEvents();
+                updateTotal();
             });
-            document.querySelector('.total-amount').textContent = `TOTAL: P ${total.toFixed(2)}`;
-        }
+    }
 
-        // Initialize the cart when the page loads
-        document.addEventListener('DOMContentLoaded', loadCartItems);
+    function attachRemoveEvents() {
+        document.querySelectorAll('.remove-item').forEach(btn => {
+            btn.onclick = function() {
+                const productId = this.getAttribute('data-id');
+                fetch('remove_from_cart.php', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    body: 'product_id=' + encodeURIComponent(productId)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        loadCartItems();
+                    }
+                });
+            };
+        });
+    }
+
+    function updateTotal() {
+        let total = 0;
+        document.querySelectorAll('.cart-item').forEach(item => {
+            const price = parseFloat(item.querySelector('.item-price').textContent.replace('P ', ''));
+            const quantity = parseInt(item.querySelector('.quantity').textContent);
+            total += price * quantity;
+        });
+        document.querySelector('.total-amount').textContent = `TOTAL: P ${total.toFixed(2)}`;
+    }
+        document.querySelector('.checkout-button').onclick = function() {
+        fetch('clear_cart.php', {
+            method: 'POST'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                window.location.href = 'checkout.html';
+            }
+        });
+    };
+
+    document.addEventListener('DOMContentLoaded', loadCartItems);
     </script>
 </body>
 </html>
