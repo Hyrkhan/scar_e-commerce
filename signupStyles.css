@@ -122,11 +122,11 @@ nav > div:last-child img {
 }
 
 .signup-container {
-  width: 25vw;
+  width: 28vw;
   display: flex;
   flex-direction: column;
   justify-content: center; /* This helps with vertical centering */
-  height: 70vh;
+  height: 76vh;
 }
 
 header {
@@ -157,15 +157,15 @@ header h2 {
 }
 
 .logo h1 {
-    font-size: 1.2rem;
-    margin-bottom: 1.6rem;
+    font-size: 1.0rem;
+    margin-bottom: 2vh;
     color: #253a86;
     margin: auto; /* Additional centering */
     text-align: center;
 }
 
 .logo img {
-    width: 60px; /* Adjust as needed */
+    width: 50px; /* Adjust as needed */
     height: auto; /* Maintain aspect ratio */
     display: block;
     margin: 0 auto 0; /* Center the logo */
@@ -175,18 +175,19 @@ header h2 {
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin-top: 1.5vh;
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.0rem;
     text-align: left;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     font-weight: bold;
-    font-size: .9rem;
+    font-size: .8rem;
 }
 
 .form-group input {
@@ -194,7 +195,7 @@ header h2 {
     padding: 0.8rem;
     border: 1px solid #b4c8e4;
     border-radius: 8px;
-    font-size: .9rem;
+    font-size: .7rem;
     box-sizing: border-box;
 }
 
@@ -205,17 +206,17 @@ header h2 {
 }
 
 .signup-button {
-    width: 50%;
+    width: 40%;
     padding: 2vh;
     background-color: #253a86;
     color: white;
     border: none;
     border-radius: 20px;
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin: 2vh auto 0;
+    margin: 1vh auto 0;
     display: block;
 }
 
