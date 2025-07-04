@@ -1,0 +1,158 @@
+/* Custom styles for the upload product page */
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter font */
+            background-color: #e0f2f7; /* Light blue background */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            margin: 0;
+            padding: 0;
+            background-image: url('https://placehold.co/1000x1000/e0f2f7/e0f2f7?text='); /* Placeholder for background pattern */
+            background-repeat: repeat;
+            background-size: 200px; /* Adjust size of the pattern */
+        }
+
+        /* Main content area for the form */
+        .main-content {
+            flex-grow: 1; /* Allows content to take available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Styling for the product info container */
+        .product-info-container {
+            background-color: #cae1ff; /* Slightly darker blue for the container */
+            border-radius: 20px; /* Rounded corners */
+            padding: 40px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow */
+            width: 100%;
+            max-width: 500px; /* Max width for the form */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Space between form groups */
+        }
+
+        .product-info-container h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            text-align: left; /* Align labels to the left */
+            margin-bottom: 15px;
+            display: flex; /* Make form group a flex container */
+            align-items: center; /* Align items vertically in the center */
+            gap: 10px; /* Space between label and input */
+        }
+
+        .form-group label {
+            /* display: block; Removed this as flex handles layout */
+            font-size: 1.1em;
+            color: #333;
+            /* margin-bottom: 8px; Removed as gap handles spacing */
+            font-weight: 500;
+            min-width: 100px; /* Give labels a minimum width for alignment */
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="file"],
+        .form-group input[type="text"]#productPrice { /* Explicitly target price input */
+            flex-grow: 1; /* Allow input to take remaining space */
+            width: auto; /* Override calc(100% - 20px) as flex handles width */
+            padding: 12px 10px;
+            border: 1px solid #90caf9; /* Light blue border */
+            border-radius: 8px; /* Rounded input fields - already present and effective */
+            font-size: 1em;
+            box-sizing: border-box; /* Include padding in width */
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        /* Specific styling for the description textarea, as it should still be full width */
+        .form-group.description-group {
+            flex-direction: column; /* Make description group stack vertically */
+            align-items: flex-start; /* Align label and textarea to the start */
+        }
+
+        .form-group.description-group textarea {
+            width: 100%; /* Full width for textarea */
+            padding: 12px 10px;
+            border: 1px solid #90caf9;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #333;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+
+        .upload-button {
+            background-color: #3f51b5; /* Darker blue for button */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px; /* Rounded button */
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-button:hover {
+            background-color: #303f9f; /* Slightly darker on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .product-info-container {
+                padding: 30px;
+                margin: 20px;
+            }
+            .product-info-container h2 {
+                font-size: 1.8em;
+            }
+            .form-group {
+                flex-direction: column; /* Stack items vertically on smaller screens */
+                align-items: flex-start; /* Align to start when stacked */
+                gap: 5px; /* Smaller gap when stacked */
+            }
+            .form-group label {
+                min-width: auto; /* Remove min-width when stacked */
+            }
+            .form-group input, .form-group textarea {
+                width: 100%; /* Full width when stacked */
+                font-size: 0.9em;
+            }
+            .upload-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-info-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            .product-info-container h2 {
+                font-size: 1.5em;
+            }
+            .form-group label {
+                font-size: 0.9em;
+            }
+            .form-group input, .form-group textarea {
+                padding: 8px;
+            }
+            .upload-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }

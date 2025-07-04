@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHECKOUT</title>
-    <link rel="stylesheet" href="checkoutStyles.css">
+    <title>Upload Product - BLUE CHERRY</title>
+    <link rel="stylesheet" href="indexStyles.css"> <!-- Assuming a shared CSS file for global styles -->
+    <link rel="stylesheet" href="sellStyles.css"> <!-- Specific styles for the sell page -->
 </head>
 <body>
+    <!-- Navigation Bar (copied from index.html) -->
     <nav>
         <div>
             <img src="./media/icons and logo/logo.png" alt="Logo">
@@ -19,19 +21,41 @@
                 <li><a href="sell.html">Sell</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="cart.html"><img src="./media/icons and logo/shopping bag.png" alt="Cart"></a></li>
+                <li><a href="cart.html"><img src="./media//icons and logo/shopping bag.png" alt="Cart"></a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="checkout-container">
-        <div class="checkout-message">
-            <h1>Thank you for Shopping!</h1>
-            <p>You may check your delivery progress. If you have any problems, please message us!</p>
-            <button class="go-back-button" onclick="window.location.href='index.html';">Go Back</button>
+    <div class="main-content">
+        <div class="product-info-container">
+            <h2>PRODUCT INFO</h2>
+            <form>
+                <div class="form-group">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="productImage">Choose File:</label>
+                    <input type="file" id="productImage" name="productImage" accept="image/*" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="productPrice">Set Price:</label>
+                    <input type="text" id="productPrice" name="productPrice" placeholder="e.g., ₱ 123.00" required>
+                </div>
+
+                <div class="form-group description-group"> <!-- Added a new class for description -->
+                    <label for="productDescription">Description:</label>
+                    <textarea id="productDescription" name="productDescription" placeholder="Enter product description" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="upload-button">UPLOAD PRODUCT</button>
+            </form>
         </div>
     </div>
 
+    <!-- Footer (copied from index.html) -->
     <footer>
         <div>
             <ul>
@@ -76,6 +100,7 @@
                 </li>
             </ul>
         </div>
+        
     </footer>
 </body>
 </html>

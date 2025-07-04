@@ -1,0 +1,75 @@
+/* Basic styling for the shop page to mimic the image */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
+        }
+
+        .shop-header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .shop-header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .shop-header p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background-color: #cae1ff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px; /* Fixed height for product images */
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Styles for the text within the card */
+        .product-card a { /* Target the link wrapping the content */
+            display: block; /* Make the anchor tag a block element to control its content */
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit color from parent for default text */
+            padding: 0 15px; /* Add horizontal padding to the content within the card */
+            text-align: left; /* Align text to the left */
+        }
+
+        .product-card span {
+            display: block;
+            margin-top: 5px; /* Reduced margin from 15px for closer lines */
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-card p {
+            font-size: 1.3em;
+            color: black; 
+            margin-top: 10px;
+        }
