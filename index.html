@@ -60,8 +60,8 @@
         </div>
 
         <div class="featured-products-list">
-            <ul>
-                <li>
+            <ul id="featured-products-listUL">
+                <!-- <li>
                     <a href="product.html?id=2">
                         <div class="image-wrapper">
                             <img src="./media/img/fabric.jpg" alt="Fabric">
@@ -147,9 +147,10 @@
                         <span>Three Slots</span>
                         <p>₱ 139.00</p>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
+
     </div>
 
     <div class="promoDiv">
@@ -267,6 +268,30 @@
         
     </footer>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('get_featured_products.php')
+        .then(res => res.json())
+        .then(products => {
+            const ul = document.getElementById('featured-products-listUL');
+            ul.innerHTML = '';
+            products.forEach(product => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a href="product.html?id=${product.id}">
+                        <div class="image-wrapper">
+                            <img src="${product.productImage}" alt="${product.productName}">
+                        </div>
+                        <span>${product.productName}</span>
+                        <p>₱ ${parseFloat(product.productPrice).toFixed(2)}</p>
+                    </a>
+                `;
+                ul.appendChild(li);
+            });
+        });
+});
+</script>
 
 </body>
 
