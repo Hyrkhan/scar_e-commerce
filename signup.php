@@ -14,7 +14,7 @@ $stmt = $conn->prepare("INSERT INTO users (email, fullname, password, username, 
 $stmt->bind_param("ssssss", $email, $fullname, $password, $username, $phone, $address);
 
 if ($stmt->execute()) {
-    header("Location: index.html");
+    header("Location: login.html");
     exit();
 } else {
     echo "Error: " . $stmt->error;

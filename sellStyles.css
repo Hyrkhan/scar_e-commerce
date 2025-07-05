@@ -60,6 +60,7 @@
         }
 
         .form-group input[type="text"],
+        .form-group input[type="number"],
         .form-group input[type="file"],
         .form-group input[type="text"]#productPrice { /* Explicitly target price input */
             flex-grow: 1; /* Allow input to take remaining space */

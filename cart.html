@@ -16,7 +16,7 @@
         <div>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
+                <li><a href="shop.php">Shop</a></li>
                 <li><a href="sell.html">Sell</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
@@ -121,7 +121,9 @@
     function updateTotal() {
         let total = 0;
         document.querySelectorAll('.cart-item').forEach(item => {
-            const price = parseFloat(item.querySelector('.item-price').textContent.replace('P ', ''));
+            // Remove currency symbol and commas
+            const priceText = item.querySelector('.item-price').textContent.replace(/[₱P, ]/g, '').trim();
+            const price = parseFloat(priceText);
             const quantity = parseInt(item.querySelector('.quantity').textContent);
             total += price * quantity;
         });

@@ -17,7 +17,7 @@
         <div>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
+                <li><a href="shop.php">Shop</a></li>
                 <li><a href="sell.html">Sell</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
@@ -29,7 +29,7 @@
     <div class="main-content">
         <div class="product-info-container">
             <h2>PRODUCT INFO</h2>
-            <form>
+            <form action="upload_product.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="productName">Product Name:</label>
                     <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
@@ -42,12 +42,17 @@
 
                 <div class="form-group">
                     <label for="productPrice">Set Price:</label>
-                    <input type="text" id="productPrice" name="productPrice" placeholder="e.g., ₱ 123.00" required>
+                    <input type="number" id="productPrice" name="productPrice" required>
                 </div>
 
                 <div class="form-group description-group"> <!-- Added a new class for description -->
                     <label for="productDescription">Description:</label>
                     <textarea id="productDescription" name="productDescription" placeholder="Enter product description" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group description-group"> <!-- Added a new class for description -->
+                    <label for="keyBenefits">Key Benefits:</label>
+                    <textarea id="keyBenefits" name="keyBenefits" placeholder="Enter product key benefits" rows="5" required></textarea>
                 </div>
 
                 <button type="submit" class="upload-button">UPLOAD PRODUCT</button>
