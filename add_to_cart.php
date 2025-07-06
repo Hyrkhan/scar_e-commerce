@@ -3,6 +3,19 @@ header('Content-Type: application/json'); // ✅ Important for correct JS parsin
 session_start();
 include 'conn.php';
 
+// ✅ Create cart table if it doesn't exist
+$createTableSql = "
+CREATE TABLE IF NOT EXISTS cart (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    product_id VARCHAR(255) NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    price VARCHAR(50) NOT NULL,
+    image VARCHAR(255),
+    quantity INT NOT NULL
+)";
+$conn->query($createTableSql);
+
 // ✅ Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['status' => 'error', 'message' => 'User not logged in']);
