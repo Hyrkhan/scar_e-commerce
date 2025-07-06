@@ -13,6 +13,26 @@ $createTableSQL = "CREATE TABLE IF NOT EXISTS products (
 )";
 $conn->query($createTableSQL);
 
+// Insert default data only if table is empty
+$checkTable = $conn->query("SELECT COUNT(*) as count FROM products");
+$row = $checkTable->fetch_assoc();
+if ($row['count'] == 0) {
+    $insertSQL = "
+    INSERT INTO products (productName, productImage, productPrice, productDescription, keyBenefits)
+    VALUES
+    ('Sky Blue Solid Polyester Satin', './media/img/fabric.jpg', 40.00, 'Elevate your sewing projects with the Sky Blue Solid Polyester Satin.', 'Smooth & Easy to Sew: Glides easily under the machine.'),
+    ('Cabana Striped Dinner Plates', './media/img/plate.png', 135.00, 'Crafted from durable, food-safe ceramic or porcelain.', 'Easy to Clean: Dishwasher-safe material makes post-meal cleanup a breeze.'),
+    ('Summer Beach Collage Matte Print', './media/img/wall poster.png', 89.00, 'Printed on high-quality matte paper, the artwork delivers soft, beach-inspired vibes.', 'Aesthetic Appeal: The soft summer tones and curated design elevate any space.'),
+    ('Stationery Blue Gel Pen (4 pcs)', './media/img/pen.png', 116.00, 'Each pen features a fine-tip point for precision writing and sketching.', 'Smooth Writing: Gel ink glides effortlessly across the page.'),
+    ('Three-Sided Ruler (3 pcs)', './media/img/three sided ruler.png', 94.00, 'Made from durable, lightweight plastic or aluminum for long-lasting use.', 'Multi-Angle Design: Each ruler features three sides with distinct measurements.'),
+    ('Transparent Sakura Umbrella', './media/img/umbrella 2.webp', 203.00, 'Step into elegance and serenity with the Blue Shade Transparent Sakura Umbrella.', 'UV Protection: Blocks harmful UV rays, making it perfect for sunny days.'),
+    ('Shade Blue Highlighter (8 pcs)', './media/img/markers.png', 158.00, 'Highlight with style and clarity using the Shade Blue Highlighter set.', '8 Unique Shades of Blue: Great for organizing notes and boosting creativity.'),
+    ('Acrylic Pen Shelf Three Slots', './media/img/acrylic shelf.png', 139.00, 'Keep your workspace clean, stylish, and organized with this acrylic pen shelf.', 'Organized & Accessible: Keeps your most-used tools within easy reach.');
+    ";
+
+    $conn->query($insertSQL);
+}
+
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize input
